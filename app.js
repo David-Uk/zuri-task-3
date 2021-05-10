@@ -47,6 +47,12 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/v1/", router);
+
+app.use("/", (req, res) => {
+  res.status(200).json({
+    message: "Up and running",
+  });
+});
 /* app.use("/api/v1/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs)); */
 
 const PORT = process.env.PORT || 5000;
